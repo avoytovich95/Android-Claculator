@@ -9,172 +9,144 @@
         tools:showIn="@layout/activity_main"
         tools:context=".MainActivity" tools:layout_editor_absoluteY="25dp">
 
-    <Button
-            style="@style/Operands"
-            android:text="+"
-            android:id="@+id/add" tools:ignore="HardcodedText"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/equals" android:layout_marginStart="16dp"
-            app:layout_constraintStart_toEndOf="@+id/three"/>
-    <Button
-            style="@style/Operands"
-            android:text="−"
-            android:id="@+id/subtract"
-            tools:ignore="HardcodedText"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" app:layout_constraintStart_toEndOf="@+id/six"
-            android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/add"
-            android:layout_marginStart="16dp"/>
-    <Button
-            style="@style/Operands"
-            android:text="×"
-            android:id="@+id/multiply"
-            tools:ignore="HardcodedText"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/subtract" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="16dp"
-            app:layout_constraintStart_toEndOf="@+id/nine"/>
-    <Button
-            style="@style/Operands"
-            android:text="÷"
-            android:id="@+id/divide" tools:ignore="HardcodedText"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/multiply" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
-            app:layout_constraintStart_toEndOf="@+id/delete"/>
-    <Button
-            style="@style/Operands"
-            android:text="="
-            android:id="@+id/equals" tools:ignore="HardcodedText"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="8dp" android:layout_marginStart="16dp"
-            app:layout_constraintStart_toEndOf="@+id/period"/>
-    <Button
-            style="@style/Numbers"
-            android:text="0"
-            android:id="@+id/zero" tools:ignore="HardcodedText"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginStart="16dp" app:layout_constraintStart_toEndOf="@+id/negative"/>
-    <Button
-            style="@style/Helper"
-            android:text="."
-            android:id="@+id/period" tools:ignore="HardcodedText"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginStart="16dp" app:layout_constraintStart_toEndOf="@+id/zero"/>
-    <Button
-            style="@style/Helper"
-            android:text="±"
-            android:id="@+id/negative" tools:ignore="HardcodedText"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp"/>
-    <Button
-            style="@style/Numbers"
-            android:text="3"
-            android:id="@+id/three" tools:ignore="HardcodedText"
-            app:layout_constraintBottom_toTopOf="@+id/period"
-            android:layout_marginBottom="8dp" android:layout_marginStart="16dp"
-            app:layout_constraintStart_toEndOf="@+id/two"/>
-    <Button
-            style="@style/Numbers"
-            android:text="2"
-            android:id="@+id/two" tools:ignore="HardcodedText"
-            app:layout_constraintBottom_toTopOf="@+id/zero" android:layout_marginBottom="8dp"
-            android:layout_marginStart="16dp"
-            app:layout_constraintStart_toEndOf="@+id/one"/>
-    <Button
-            style="@style/Numbers"
-            android:text="1"
-            android:id="@+id/one" tools:ignore="HardcodedText"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/negative" android:layout_marginBottom="8dp"/>
-    <Button
-            style="@style/Numbers"
-            android:text="6"
-            android:id="@+id/six" tools:ignore="HardcodedText"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/three"
-            android:layout_marginStart="16dp" app:layout_constraintStart_toEndOf="@+id/five"/>
-    <Button
-            style="@style/Numbers"
-            android:text="5"
-            android:id="@+id/five" tools:ignore="HardcodedText"
-            app:layout_constraintBottom_toTopOf="@+id/two" android:layout_marginBottom="8dp"
-            android:layout_marginStart="16dp"
-            app:layout_constraintStart_toEndOf="@+id/four"/>
-    <Button
-            style="@style/Numbers"
-            android:text="4"
-            android:id="@+id/four" tools:ignore="HardcodedText"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/one" android:layout_marginStart="8dp"
-            android:layout_marginBottom="8dp"/>
-    <Button
-            style="@style/Numbers"
-            android:text="9"
-            android:id="@+id/nine" tools:ignore="HardcodedText"
-            android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/six"
-            android:layout_marginStart="16dp"
-            app:layout_constraintStart_toEndOf="@+id/eight"/>
-    <Button
-            style="@style/Numbers"
-            android:text="8"
-            android:id="@+id/eight" tools:ignore="HardcodedText"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/five"
-            android:layout_marginStart="16dp" app:layout_constraintStart_toEndOf="@+id/seven"/>
-    <Button
-            style="@style/Numbers"
-            android:text="7"
-            android:id="@+id/seven" tools:ignore="HardcodedText"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/four" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp"/>
-    <Button
-            style="@style/Helper"
-            android:text="←"
-            android:id="@+id/delete" tools:ignore="HardcodedText,MissingConstraints"
-            android:layout_marginStart="16dp" app:layout_constraintStart_toEndOf="@+id/clear"
-            android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/nine"/>
-    <Button
-            style="@style/Helper"
-            android:text="%"
-            android:id="@+id/percent" tools:ignore="HardcodedText,MissingConstraints"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/seven"/>
-    <Button
-            style="@style/Helper"
-            android:text="C"
-            android:id="@+id/clear" tools:ignore="HardcodedText"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/eight"
-            android:layout_marginStart="8dp" app:layout_constraintStart_toEndOf="@+id/percent"/>
-    <android.support.constraint.Group android:layout_width="wrap_content" android:layout_height="wrap_content"
-                                      android:id="@+id/group"/>
+
     <TextView
             android:text=""
-            android:layout_width="350dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:id="@+id/mainText"
             android:textAlignment="textEnd"
             android:textSize="50sp" android:lineSpacingExtra="12sp"
             android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/smallText" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp"/>
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
+            app:layout_constraintVertical_bias="0.26"/>
     <TextView
             android:text=""
-            android:layout_width="350dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:id="@+id/smallText"
             android:textAlignment="textEnd" android:textSize="26sp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"/>
+
+    <LinearLayout style="@style/ButtonLayout"
+                  app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintEnd_toEndOf="parent" android:id="@+id/linearLayout5">
+
+        <Button
+                style="@style/Helper"
+                android:text="%"
+                android:id="@+id/percent" tools:ignore="HardcodedText,MissingConstraints"
+                app:layout_constraintStart_toStartOf="parent"/>
+        <Button
+                style="@style/Helper"
+                android:text="C"
+                android:id="@+id/clear" tools:ignore="HardcodedText"/>
+        <Button
+                style="@style/Helper"
+                android:text="Del"
+                android:id="@+id/delete" tools:ignore="HardcodedText"/>
+        <Button
+                style="@style/Operands"
+                android:text="÷"
+                android:id="@+id/divide" tools:ignore="HardcodedText"/>
+    </LinearLayout>
+
+    <LinearLayout style="@style/ButtonLayout"
+                  app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintEnd_toEndOf="parent" android:id="@+id/linearLayout4">
+        <Button
+                style="@style/Numbers"
+                android:text="7"
+                android:id="@+id/seven" tools:ignore="HardcodedText"/>
+        <Button
+                style="@style/Numbers"
+                android:text="8"
+                android:id="@+id/eight" tools:ignore="HardcodedText"/>
+        <Button
+                style="@style/Numbers"
+                android:text="9"
+                android:id="@+id/nine" tools:ignore="HardcodedText"
+                tools:layout_editor_absoluteX="210dp" tools:layout_editor_absoluteY="295dp"/>
+        <Button
+                style="@style/Operands"
+                android:text="×"
+                android:id="@+id/multiply" tools:ignore="HardcodedText"/>
+    </LinearLayout>
+
+
+    <LinearLayout style="@style/ButtonLayout"
+                  app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintStart_toStartOf="parent" android:id="@+id/linearLayout3">
+        <Button
+                style="@style/Numbers"
+                android:text="4"
+                android:id="@+id/four" tools:ignore="HardcodedText"/>
+        <Button
+                style="@style/Numbers"
+                android:text="5"
+                android:id="@+id/five" tools:ignore="HardcodedText"/>
+        <Button
+                style="@style/Numbers"
+                android:text="6"
+                android:id="@+id/six" tools:ignore="HardcodedText"/>
+        <Button
+                style="@style/Operands"
+                android:text="−"
+                android:id="@+id/subtract" tools:ignore="HardcodedText"/>
+    </LinearLayout>
+
+    <LinearLayout style="@style/ButtonLayout"
+                  app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintStart_toStartOf="parent" android:id="@+id/linearLayout2">
+        <Button
+                style="@style/Numbers"
+                android:text="1"
+                android:id="@+id/one" tools:ignore="HardcodedText"/>
+        <Button
+                style="@style/Numbers"
+                android:text="2"
+                android:id="@+id/two" tools:ignore="HardcodedText"/>
+        <Button
+                style="@style/Numbers"
+                android:text="3"
+                android:id="@+id/three" tools:ignore="HardcodedText"/>
+        <Button
+                style="@style/Operands"
+                android:text="+"
+                android:id="@+id/add" tools:ignore="HardcodedText"/>
+    </LinearLayout>
+
+    <LinearLayout style="@style/ButtonLayout"
+                  app:layout_constraintBottom_toBottomOf="parent"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintStart_toStartOf="parent" android:id="@+id/linearLayout">
+        <Button
+                style="@style/Helper"
+                android:text="±"
+                android:id="@+id/negative" tools:ignore="HardcodedText"/>
+        <Button
+                style="@style/Numbers"
+                android:text="0"
+                android:id="@+id/zero" tools:ignore="HardcodedText"/>
+        <Button
+                style="@style/Helper"
+                android:text="."
+                android:id="@+id/period" tools:ignore="HardcodedText"/>
+        <Button
+                style="@style/Operands"
+                android:text="="
+                android:id="@+id/equals" tools:ignore="HardcodedText"/>
+    </LinearLayout>
+
+    <android.support.constraint.Group android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                      android:id="@+id/group"/>
 </android.support.constraint.ConstraintLayout>

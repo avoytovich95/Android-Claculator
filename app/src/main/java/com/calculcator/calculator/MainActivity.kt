@@ -1,13 +1,16 @@
 package com.calculcator.calculator
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Bundle
+import android.os.Vibrator
 import android.support.v7.app.AppCompatActivity
 import android.widget.Button
 import android.widget.TextView
-import java.util.*
 
 class MainActivity : AppCompatActivity() {
+
+  private lateinit var vibe: Vibrator
 
   lateinit var mainTextView: TextView
   lateinit var smallTextView: TextView
@@ -19,16 +22,18 @@ class MainActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.content_main)
 
+    vibe = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+
     (findViewById<Button>(R.id.divide)).setOnClickListener { append(" ÷ ", Type.OPERATOR) }
     (findViewById<Button>(R.id.multiply)).setOnClickListener { append(" × ", Type.OPERATOR) }
     (findViewById<Button>(R.id.subtract)).setOnClickListener { append(" − ", Type.OPERATOR) }
     (findViewById<Button>(R.id.add)).setOnClickListener { append(" + ", Type.OPERATOR) }
     (findViewById<Button>(R.id.period)).setOnClickListener { append(".", Type.PERIOD) }
     (findViewById<Button>(R.id.negative)).setOnClickListener { append("-", Type.NEGATIVE) }
-    (findViewById<Button>(R.id.clear)).setOnClickListener { clear() }
-    (findViewById<Button>(R.id.delete)).setOnClickListener { delete() }
-    (findViewById<Button>(R.id.equals)).setOnClickListener { equals() }
-    (findViewById<Button>(R.id.percent)).setOnClickListener { perc() }
+    (findViewById<Button>(R.id.clear)).setOnClickListener { clear(); v() }
+    (findViewById<Button>(R.id.delete)).setOnClickListener { delete(); v() }
+    (findViewById<Button>(R.id.equals)).setOnClickListener { equals(); v() }
+    (findViewById<Button>(R.id.percent)).setOnClickListener { perc(); v() }
 
     (findViewById<Button>(R.id.zero)).setOnClickListener { append("0", Type.NUMBER) }
     (findViewById<Button>(R.id.one)).setOnClickListener { append("1", Type.NUMBER) }
@@ -45,7 +50,12 @@ class MainActivity : AppCompatActivity() {
     smallTextView = findViewById(R.id.smallText)
   }
 
+  private fun v() {
+    vibe.vibrate(5)
+  }
+
   fun append(str: String, type: Type) {
+    v()
     when (type) {
       Type.NUMBER -> appendNum(str)
       Type.OPERATOR -> appendOp(str)
@@ -71,7 +81,7 @@ class MainActivity : AppCompatActivity() {
       count++
   }
 
-  fun appendOp(op: String) {
+  private fun appendOp(op: String) {
     if (count == 1) {
       count++
 
@@ -82,7 +92,7 @@ class MainActivity : AppCompatActivity() {
     }
   }
 
-  fun appendDot() {
+  private fun appendDot() {
     if (count == 0) {
       if (evaluated) {
         evaluated = false
@@ -164,7 +174,7 @@ class MainActivity : AppCompatActivity() {
 
   fun eval(): String {
     if (mainTextView.text.last() == '.')
-      mainTextView.append("0")
+      smallTextView.append("0")
 
     val str = mainTextView.text.split(" ")
     count = 0
