@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
 
   var count = 0
   var evaluated = false
+  val last = ArrayList<String>()
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -70,19 +71,28 @@ class MainActivity : AppCompatActivity() {
     count = 0
   }
 
-  fun appendNum(num: String) {
+  fun softClear() {
     if (evaluated) {
+      smallTextView.text = ""
       evaluated = false
-      clear()
+      last.clear()
     }
+  }
 
-    mainTextView.append(num)
-    if (count == 0)
+  private fun appendNum(num: String) {
+    softClear()
+
+    if (mainTextView.text.isEmpty())
+      count ++
+    else if (mainTextView.text.last() == ' ')
       count++
+    mainTextView.append(num)
   }
 
   private fun appendOp(op: String) {
-    if (count == 1) {
+    if (mainTextView.text.last() != ' ') {
+      softClear()
+
       count++
 
       if (mainTextView.text.last() == '.')
@@ -94,24 +104,17 @@ class MainActivity : AppCompatActivity() {
 
   private fun appendDot() {
     if (count == 0) {
-      if (evaluated) {
-        evaluated = false
-        clear()
-      }
+      softClear()
 
       mainTextView.append("0.")
       count++
 
-    } else if (count == 1 && !mainTextView.text.contains("."))
+    } else if (mainTextView.text.last() == ' ') {
+      mainTextView.append("0.")
+    }else if (count == 1 && !mainTextView.text.contains(".")) {
       mainTextView.append(".")
-
-    else if (count == 2) {
-
-      if (mainTextView.text.split(" ")[2].isEmpty())
-        mainTextView.append("0.")
-
-      else if (!mainTextView.text.split(" ")[2].contains("."))
-        mainTextView.append(".")
+    }else if (!mainTextView.text.split(" ").last().contains(".")) {
+      mainTextView.append(".")
     }
   }
 
@@ -148,14 +151,19 @@ class MainActivity : AppCompatActivity() {
   }
 
   fun equals() {
-    if (count == 2) {
+    if (count > 2) {
       smallTextView.text = mainTextView.text
       mainTextView.text = eval()
+    } else if (evaluated) {
+      smallTextView.text = mainTextView.text
+      smallTextView.append(last[0])
+      smallTextView.append(last[1])
+      evalLast()
     }
   }
 
   fun perc() {
-    if (count == 2) {
+    if (count > 2) {
       smallTextView.append("(")
       smallTextView.append(mainTextView.text)
       smallTextView.append(")%")
@@ -173,15 +181,29 @@ class MainActivity : AppCompatActivity() {
   }
 
   fun eval(): String {
-    if (mainTextView.text.last() == '.')
+    if (mainTextView.text.last() == '.') {
+      mainTextView.append("0")
       smallTextView.append("0")
+    }
+    smallTextView.append(" = ")
 
     val str = mainTextView.text.split(" ")
-    count = 0
 
-    val res = Functions.solve(str[0], str[2], str[1])
-    smallTextView.append(" = ")
+    last += str[str.size - 2]
+    last += str[str.size - 1]
+
+    val eq = ArrayList<String>()
+    for (s in str)
+      eq += s
+    val res = Functions.solve(eq)
+
+    count = 1
     evaluated = true
+
     return res
+  }
+
+  fun evalLast() {
+
   }
 }

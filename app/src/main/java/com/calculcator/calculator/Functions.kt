@@ -2,6 +2,37 @@ package com.calculcator.calculator
 
 object Functions {
 
+  fun solve(eq: ArrayList<String>): String {
+    val temp = ArrayList<String>(eq)
+    val temp2 = ArrayList<String>()
+
+    while (temp.contains("×") || temp.contains("÷")){\
+
+      if (temp.contains("×")) {
+        val m = temp.indexOf("×")
+        temp[m - 1] = solve(temp[m - 1], temp.removeAt(m + 1), temp.removeAt(m))
+      }
+      if (temp.contains("÷")) {
+        val d = temp.indexOf("÷")
+        temp[d - 1] = solve(temp[d - 1], temp.removeAt(d + 1), temp.removeAt(d))
+      }
+    }
+
+    while(temp.size != 1) {
+      println(temp)
+      if (temp.contains("+")) {
+        val p = temp.indexOf("+")
+        temp[p - 1] = solve(temp[p - 1], temp.removeAt(p + 1), temp.removeAt(p))
+      }
+      if (temp.contains("−")) {
+        val s = temp.indexOf("−")
+        temp[s - 1] = solve(temp[s - 1], temp.removeAt(s + 1), temp.removeAt(s))
+      }
+    }
+
+    return temp[0]
+  }
+
   fun solve(num1: String, num2: String, op: String): String {
     return when (op) {
       "+" -> add(num1.toDouble(), num2.toDouble())
